@@ -1,8 +1,9 @@
 import * as React from 'react'
 import { Button } from 'react-bootstrap'
-import countReducer from '../components/exampleReducer'
+import {useDispatch} from "react-redux";
+import {checkDate} from '../helpers/dateChecker'
 
-const Task = ({task, taskDelete, setDone}) => {
+const Task = ({task}) => {
 
     const styles = {
         h4: {
@@ -17,6 +18,9 @@ const Task = ({task, taskDelete, setDone}) => {
         p: {
           color: 'white'
         },
+        ['p-deadline'] : {
+            color: 'pink'
+        },
         divRow: {
             color: 'white',
             display: 'flex',
@@ -28,20 +32,34 @@ const Task = ({task, taskDelete, setDone}) => {
         }
     }
 
-    const [time, dispatch ] = React.useReducer(countReducer, new Date().getHours())
+    const taskDispatch = useDispatch()
+    const deleteTask = (id) => {
+        taskDispatch({type: 'DELETE_TASK', id})
+    }
+    const setTaskDone = (id) => {
+        taskDispatch({type:'SET_TASK_DONE', id})
+    }
 
-
+    console.log(new Date(task.date))
     return (
         <li style={styles.li}>
             <h4 style={styles.h4}>{task.task}</h4>
             <div style={styles.divRow}>
-                <span style={styles.marginRight}>Actions:{time}</span>
-                <Button onClick={() => { dispatch({type: 'sub'})}}>-</Button>
-                <Button style={styles.marginRight} onClick={() => { dispatch({type: 'add'})}} >+</Button>
-                <Button variant="danger" onClick={()=>{taskDelete(task.id)}}>Delete</Button>
-                <Button variant="success" disabled={task.completed} onClick={()=>{setDone(task.id)}}>Done</Button>
+                <Button
+                    variant="danger"
+                    onClick={()=>{deleteTask(task.id)}}>
+                    Delete
+                </Button>
+                <Button
+                    variant="success"
+                    disabled={task.completed}
+                    onClick={()=>{setTaskDone(task.id)}}>
+                    Done
+                </Button>
             </div>
             <p style={styles.p}>To do: {task.completed ? 'No' : 'Yes'}</p>
+            <p style={styles.p}>DEADLINE: {task.deadline}</p>
+            <p style={styles['p-deadline']}>{!task.completed ? checkDate(task.deadline, task.date, 'FINISHED') : checkDate(task.deadline, task.doneTime, 'DEADLINE') }</p>
             <p style={styles.p}>Created at: {task.date} {task.doneTime ? ' | Done at ' + task.doneTime : null}</p>
         </li>
     )
