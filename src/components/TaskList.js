@@ -2,7 +2,6 @@ import * as React from 'react'
 import Task from './Task'
 import '../App.css'
 
-
 const styles = {
     ul:{
         border: '1ps solid white',
@@ -14,12 +13,12 @@ const styles = {
     }
 }
 
-
-const TaskList = ({tasks, taskDelete, setDone}) => {
+const TaskList = ({tasks}) => {
+    console.log(tasks)
     return (
         <ul  id='tasks-list' style={styles.ul}>
             {tasks.map(task => (
-               <Task task={task} setDone={setDone} taskDelete={taskDelete} key={task.id}/>
+               <Task task={task} key={task.id}/>
             ))}
         </ul>
     )
