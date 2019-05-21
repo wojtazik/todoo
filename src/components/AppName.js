@@ -8,6 +8,6 @@ const styles = {
 
 export default function AppName() {
     return (
-        <h1 style={styles}>ToDo App</h1>
+        <h1 data-testid="app-header" style={styles}>ToDo App</h1>
     )
 }

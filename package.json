@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "bootstrap": "^4.3.1",
+    "jest-dom": "^3.2.2",
     "node-sass": "^4.12.0",
     "react": "^16.8.6",
     "react-bootstrap": "^1.0.0-beta.8",
@@ -36,6 +37,8 @@
     ]
   },
   "devDependencies": {
+    "axios-mock-adapter": "^1.16.0",
+    "react-testing-library": "^7.0.1",
     "standard": "^12.0.1"
   }
 }

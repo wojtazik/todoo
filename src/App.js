@@ -4,22 +4,21 @@ import { Container, Row, Col } from 'react-bootstrap'
 import AppName from './components/AppName'
 import ToDoContainer from './containers/ToDoContainer'
 
-function App() {
+
+export function App() {
   return (
-
-
-      <div className="App">
-      <Container >
-          <Row>
-              <Col>
-                  <AppName />
-              </Col>
-          </Row>
-          <Row>
-              <ToDoContainer/>
-          </Row>
-      </Container>
-      </div>
+          <div data-testid="app-container" className="App">
+              <Container >
+                  <Row>
+                      <Col>
+                          <AppName />
+                      </Col>
+                  </Row>
+                  <Row>
+                      <ToDoContainer/>
+                  </Row>
+              </Container>
+          </div>
   );
 }
 

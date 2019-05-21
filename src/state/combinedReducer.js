@@ -25,7 +25,7 @@ export const combinedReducer = (state, action) => {
                     return {
                         ...el,
                         completed: true,
-                        doneTime : `${date.getFullYear()}-${date.getMonth() + 1}-${date.getDate()+1} ${date.getHours()}:${date.getMinutes()}`
+                        doneDate: `${date.getFullYear()}-${date.getMonth() + 1}-${date.getDate()+1} ${date.getHours()}:${date.getMinutes()}`
                     }
                 }
                 return el

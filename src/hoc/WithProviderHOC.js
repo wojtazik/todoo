@@ -1,8 +1,8 @@
-import { createStore } from "redux";
-import { combinedReducer } from './combinedReducer'
-import { makeid } from '../helpers/idmaker'
-
-
+import React from 'react';
+import { createStore } from 'redux';
+import { Provider } from 'react-redux';
+import { combinedReducer } from '../state/combinedReducer';
+import {makeid} from "../helpers/idmaker";
 
 const date = new Date()
 
@@ -58,8 +58,17 @@ const store = createStore(combinedReducer, {
             deadlineDate: '2019-05-25',
             startDate: `${date.getFullYear()}-${date.getMonth() + 1}-${date.getDate()+1} ${date.getHours()}:${date.getMinutes()}`
         }
-    ]}, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__())
+    ]
+});
 
 
+const RootStore = ({children}) => {
 
-export default store
+    return (
+        <Provider store={store}>
+            {children}
+        </Provider>
+    )
+};
+
+export default RootStore;
