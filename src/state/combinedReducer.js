@@ -1,6 +1,15 @@
 export const combinedReducer = (state, action) => {
     switch (action.type) {
         case 'ADD_TASK':
+
+            const newState =
+                [
+                    action.task,
+                    ...state.todos
+                ]
+          localStorage.setItem('todos', JSON.stringify(newState))
+
+
             return Object.assign({}, state, {
                 todos: [
                     action.task,
@@ -14,6 +23,7 @@ export const combinedReducer = (state, action) => {
             const todos = {
                 todos: arrayWithRemovedItem
             }
+            localStorage.setItem('todos', JSON.stringify(arrayWithRemovedItem))
             return {
                 ...state,
                 ...todos
@@ -24,12 +34,13 @@ export const combinedReducer = (state, action) => {
                     const date = new Date()
                     return {
                         ...el,
-                        completed: true,
+                        completed: !el.completed,
                         doneDate: `${date.getFullYear()}-${date.getMonth() + 1}-${date.getDate()+1} ${date.getHours()}:${date.getMinutes()}`
                     }
                 }
                 return el
                 })
+                localStorage.setItem('todos', JSON.stringify(itemsToChange))
                 return {
                     ...state,
                     todos: itemsToChange
