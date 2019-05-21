@@ -13,9 +13,16 @@
   display: flex;
 }
 
-
-
-
+.task-list {
+  border: 1px solid white;
+  background-color: #222c34;
+  list-style-type: none;
+  overflow: scroll;
+  max-height: 670px;
+  border-radius: 30px;
+  scrollbar-width: none;
+  -ms-overflow-style: -ms-autohiding-scrollbar;
+}
 
 @keyframes App-logo-spin {
   from {

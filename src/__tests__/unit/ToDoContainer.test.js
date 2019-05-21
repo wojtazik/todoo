@@ -23,6 +23,6 @@ describe('renders ToDoContainer', () => {
     })
 
     test('should render form', ()=>{
-        expect(container.getElementsByTagName('h3').length).not.toBe(0)
+        expect(container.getElementsByTagName('button').length).not.toBe(0)
     })
 });
