@@ -2,7 +2,7 @@ import * as React from 'react'
 import TaskForm from '../components/TaskForm'
 import TaskList from '../components/TaskList'
 import {Col} from "react-bootstrap";
-import {useSelector, useStore} from "react-redux";
+import {useSelector} from "react-redux";
 
 const ToDoContainer = () => {
 

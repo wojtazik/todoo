@@ -14,7 +14,6 @@ const styles = {
 }
 
 const TaskList = ({tasks}) => {
-    console.log(tasks)
     return (
         <ul  id='tasks-list' style={styles.ul}>
             {tasks.map(task => (

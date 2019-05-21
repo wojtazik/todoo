@@ -18,7 +18,7 @@ const Task = ({task}) => {
         p: {
           color: 'white'
         },
-        ['p-deadline'] : {
+        pDeadline: {
             color: 'pink'
         },
         divRow: {
@@ -40,7 +40,7 @@ const Task = ({task}) => {
         taskDispatch({type:'SET_TASK_DONE', id})
     }
 
-    console.log(new Date(task.date))
+
     return (
         <li style={styles.li}>
             <h4 style={styles.h4}>{task.task}</h4>
@@ -58,9 +58,9 @@ const Task = ({task}) => {
                 </Button>
             </div>
             <p style={styles.p}>To do: {task.completed ? 'No' : 'Yes'}</p>
-            <p style={styles.p}>DEADLINE: {task.deadline}</p>
-            <p style={styles['p-deadline']}>{!task.completed ? checkDate(task.deadline, task.date, 'FINISHED') : checkDate(task.deadline, task.doneTime, 'DEADLINE') }</p>
-            <p style={styles.p}>Created at: {task.date} {task.doneTime ? ' | Done at ' + task.doneTime : null}</p>
+            <p style={styles.p}>DEADLINE: {task.deadlineDate}</p>
+            <p style={styles.pDeadline}>{!task.completed ? checkDate(task.deadlineDate, task.startDate, 'DEADLINE') : checkDate(task.deadlineDate, task.doneDate, 'FINISHED') }</p>
+            <p style={styles.p}>Created at: {task.startDate} {task.doneDate ? ' | Done at ' + task.doneDate : null}</p>
         </li>
     )
 }

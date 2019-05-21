@@ -19,7 +19,7 @@ const styles = {
     }
 }
 
-const TaskForm = ({}) => {
+const TaskForm = () => {
 
     const dispatch = useDispatch()
     const [shows, setShow] = React.useState(false)
@@ -40,8 +40,8 @@ const TaskForm = ({}) => {
             id: makeid(10),
             task: taskText.value,
             completed: false,
-            deadline: taskDate.value,
-            date: `${new Date().getFullYear()}-${new Date().getMonth() + 1}-${new Date().getDate()+1 } ${new Date().getHours()}:${new Date().getMinutes()}`
+            deadlineDate: taskDate.value,
+            startDate: `${new Date().getFullYear()}-${new Date().getMonth() + 1}-${new Date().getDate()+1 } ${new Date().getHours()}:${new Date().getMinutes()}`
         }
         dispatch({type: 'ADD_TASK', task})
         setShow(false)
@@ -50,21 +50,21 @@ const TaskForm = ({}) => {
     return(
         <>
         <div>
-            <h3 style={styles.h3} onClick={handleShow}>Add task</h3>
+            <h3 data-testid="test-show-modal-button" style={styles.h3} onClick={handleShow}>Add task</h3>
         </div>
-        <Modal show={shows} onHide={handleClose}>
+        <Modal data-testid="test-modal" show={shows} onHide={handleClose}>
             <Modal.Header  style={styles.header} closeButton>
                 <Modal.Title>Add Task form</Modal.Title>
             </Modal.Header>
             <Modal.Body>
-                <Form>
+                <Form data-testid="test-form">
                     <Form.Group>
-                        <Form.Label>Task text</Form.Label>
-                        <Form.Control type="text" ref={node => { taskText = node }}></Form.Control>
+                        <Form.Label data-testid="test-task-label">Task text</Form.Label>
+                        <Form.Control type="text" ref={node => { taskText = node }} />
                     </Form.Group>
                     <Form.Group>
-                        <Form.Label>Task Deadline</Form.Label>
-                        <Form.Control type="date" ref={node => { taskDate = node }}></Form.Control>
+                        <Form.Label data-testid="test-date-label">Task Deadline</Form.Label>
+                        <Form.Control type="date" ref={node => { taskDate = node }} />
                     </Form.Group>
                 </Form>
             </Modal.Body>
