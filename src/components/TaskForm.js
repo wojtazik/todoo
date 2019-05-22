@@ -82,21 +82,21 @@ const TaskForm = () => {
                 <Form data-testid="test-form">
                     <Form.Group>
                         <Form.Label data-testid="test-task-label">Task text</Form.Label>
-                        <Form.Control type="text" ref={node => { taskText = node }} />
-                        {taskIsEmpty && 'Enter text before you add task'}
+                        <Form.Control data-testid="test-task-input" type="text" ref={node => { taskText = node }} />
+                        <span data-testid={"test-task-form-span"}>{taskIsEmpty && 'Enter text before you add task'}</span>
                     </Form.Group>
                     <Form.Group>
                         <Form.Label data-testid="test-date-label">Task Deadline</Form.Label>
-                        <Form.Control type="date" ref={node => { taskDate = node}} />
-                        {dateIsEmpty && 'Enter date before you add task'}
+                        <Form.Control data-testid="test-date-input" type="date" ref={node => { taskDate = node}} />
+                        <span data-testid={"test-date-form-span"}>{dateIsEmpty && 'Enter date before you add task'}</span>
                     </Form.Group>
                 </Form>
             </Modal.Body>
             <Modal.Footer>
-                <Button variant="secondary" onClick={handleClose}>
+                <Button data-testid="test-cloxe-button" variant="secondary" onClick={handleClose}>
                     Close
                 </Button>
-                <Button variant="primary" onClick={handleCloseAndAddTask}>
+                <Button data-testid="test-add-task-button" variant="primary" onClick={handleCloseAndAddTask}>
                     Add task
                 </Button>
             </Modal.Footer>
