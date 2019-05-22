@@ -49,7 +49,6 @@ const Task = ({task}) => {
         taskDispatch({type:'SET_TASK_DONE', id})
     }
 
-
     return (
         <li style={styles.li}>
             <h4 style={styles.h4}>{task.task}</h4>
@@ -68,7 +67,7 @@ const Task = ({task}) => {
             </div>
             <p style={styles.p}>To do: {task.completed ? 'No' : 'Yes'}</p>
             <p style={styles.pTimeout}>DEADLINE: {task.deadlineDate}</p>
-            <p style={styles.pDeadline}>{!task.completed ? checkDate(task.deadlineDate, task.startDate, 'DEADLINE') : checkDate(task.deadlineDate, task.doneDate, 'FINISHED') }</p>
+            <p style={styles.pDeadline} data-testid="test-deadline-paragraph">{!task.completed ? checkDate(task.deadlineDate, task.startDate, 'DEADLINE') : checkDate(task.deadlineDate, task.doneDate, 'FINISHED') }</p>
             <p style={styles.p}>Created at: {task.startDate} {task.doneDate ? ' | Done at ' + task.doneDate : null}</p>
         </li>
     )
