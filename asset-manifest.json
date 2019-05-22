@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/todoo/static/css/main.8a2fd3f1.chunk.css",
-    "main.js": "/todoo/static/js/main.71c70196.chunk.js",
-    "main.js.map": "/todoo/static/js/main.71c70196.chunk.js.map",
+    "main.js": "/todoo/static/js/main.ff31cdec.chunk.js",
+    "main.js.map": "/todoo/static/js/main.ff31cdec.chunk.js.map",
     "runtime~main.js": "/todoo/static/js/runtime~main.1976704b.js",
     "runtime~main.js.map": "/todoo/static/js/runtime~main.1976704b.js.map",
     "static/js/2.4df82947.chunk.js": "/todoo/static/js/2.4df82947.chunk.js",
     "static/js/2.4df82947.chunk.js.map": "/todoo/static/js/2.4df82947.chunk.js.map",
     "index.html": "/todoo/index.html",
-    "precache-manifest.fb2c367f853e4e52b90c38e5c94b6079.js": "/todoo/precache-manifest.fb2c367f853e4e52b90c38e5c94b6079.js",
+    "precache-manifest.8d21e96aaa28359ee447e4876df2bb07.js": "/todoo/precache-manifest.8d21e96aaa28359ee447e4876df2bb07.js",
     "service-worker.js": "/todoo/service-worker.js",
     "static/css/main.8a2fd3f1.chunk.css.map": "/todoo/static/css/main.8a2fd3f1.chunk.css.map"
   }
